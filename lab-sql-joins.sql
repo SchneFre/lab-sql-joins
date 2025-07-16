@@ -39,9 +39,9 @@ SELECT
     AVG(length) as average_length
 FROM
 	category as c
-LEFT JOIN film_category as fc
+JOIN film_category as fc
 ON fc.category_id = c.category_id
-RIGHT JOIN film as f
+JOIN film as f
 on fc.film_id = f.film_id
 GROUP BY c.name;
 
@@ -81,7 +81,7 @@ FROM
 	film as f
 LEFT JOIN inventory as i 
 ON i.film_id = f.film_id 
-WHERE f.title = "Academy Dinosaur"
+WHERE f.title = "Academy Dinosaur" and i.store_id = 1
 GROUP BY f.title, i.store_id;
 
 -- Provide a list of all distinct film titles, along with their availability status in the inventory. 
